@@ -27,7 +27,7 @@ namespace QnaDialogflowConverter
                 return;
             }
 
-            var intends = QnaReader.ReadFile(openFile.FileName);
+            var intents = QnaReader.ReadFile(openFile.FileName);
 
 
         }

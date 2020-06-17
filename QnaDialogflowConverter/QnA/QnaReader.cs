@@ -10,27 +10,27 @@ namespace QnaDialogflowConverter.QnA
 {
     class QnaReader
     {
-        public static IEnumerable<Intend> ReadFile(string fileName)
+        public static IEnumerable<Intent> ReadFile(string fileName)
         {
             var qnaReader = new ClosedXmlTable(fileName);
-            var intends = new List<Intend>();
+            var intends = new List<Intent>();
 
             for (int i = 2; i < qnaReader.RowCount; i++)
             {
                 var question = qnaReader.GetStringOfField(i, 1);
                 var answer = qnaReader.GetStringOfField(i, 2);
 
-                var existingIntend = intends.FirstOrDefault(intend => intend.Answers.Any(a => a == answer));
-                if (existingIntend is null)
+                var existingIntent = intends.FirstOrDefault(intend => intend.Answers.Any(a => a == answer));
+                if (existingIntent is null)
                 {
-                    var newIntend = new Intend();
-                    newIntend.Answers.Add(answer);
-                    newIntend.Questions.Add(question);
-                    intends.Add(newIntend);
+                    var newIntent = new Intent();
+                    newIntent.Answers.Add(answer);
+                    newIntent.Questions.Add(question);
+                    intends.Add(newIntent);
                 }
                 else
                 {
-                    existingIntend.Questions.Add(question);
+                    existingIntent.Questions.Add(question);
                 }
             }
 

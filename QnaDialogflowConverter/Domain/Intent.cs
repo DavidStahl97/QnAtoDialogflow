@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QnaDialogflowConverter.Domain
 {
-    class Intend
+    class Intent
     {
         public ICollection<string> Answers { get; } = new List<string>();
 
