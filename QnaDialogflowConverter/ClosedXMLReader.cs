@@ -1,11 +1,10 @@
 ﻿using ClosedXML.Excel;
-using LTRSimulation.Core.Files;
 using System;
 using System.Linq;
 
 namespace LTRSimulation.Common.Services
 {
-    public class ClosedXmlTable : IExcelReader, IDisposable
+    public class ClosedXmlTable : IDisposable
     {
         private readonly XLWorkbook _workbook;
         private readonly IXLWorksheet _worksheet;

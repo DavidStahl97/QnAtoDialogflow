@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LTRSimulation.Common.Services;
+using QnaDialogflowConverter.QnA;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +27,7 @@ namespace QnaDialogflowConverter
                 return;
             }
 
-            var qnaFile = openFile.FileName;
+            var intends = QnaReader.ReadFile(openFile.FileName);
 
 
         }
