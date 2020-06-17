@@ -8,5 +8,6 @@ namespace QnaDialogflowConverter.Dialogflow.Model
 {
     class IntentQuestion
     {
+        public List<Question> Questions { get; } = new List<Question>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LTRSimulation.Common.Services;
+using QnaDialogflowConverter.Dialogflow;
 using QnaDialogflowConverter.QnA;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,20 @@ namespace QnaDialogflowConverter
             var intents = QnaReader.ReadFile(openFile.FileName);
 
 
+            using (var fbd = new FolderBrowserDialog())
+            {
+                var r = fbd.ShowDialog();
+
+                if (r == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    DialogflowWriter.Write(intents, fbd.SelectedPath);
+                }
+                else
+                {
+                    Console.WriteLine("Choose Folder");
+                    return;
+                }
+            }
         }
     }
 }
